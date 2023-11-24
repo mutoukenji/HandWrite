@@ -6,7 +6,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Build;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -15,6 +14,8 @@ import android.widget.ImageView;
 import android.king.signature.config.PenConfig;
 import android.king.signature.util.StatusBarCompat;
 import android.king.signature.util.SystemUtil;
+
+import androidx.annotation.Nullable;
 
 /***
  * 名称：EraserView
@@ -39,7 +40,6 @@ public class EraserView extends View {
     public EraserView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
-        setBackgroundDrawable(null);
         setBackground(null);
         setDrawingCacheEnabled(false);
         paint = new Paint();

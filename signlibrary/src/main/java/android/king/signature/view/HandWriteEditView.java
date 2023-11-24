@@ -6,7 +6,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.king.signature.util.DisplayUtil;
-import android.support.v7.widget.AppCompatEditText;
 import android.text.Editable;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -18,6 +17,7 @@ import android.view.inputmethod.EditorInfo;
 
 import android.king.signature.util.SystemUtil;
 
+import androidx.appcompat.widget.AppCompatEditText;
 
 
 /**

@@ -9,20 +9,9 @@ import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.king.signature.util.DisplayUtil;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
-import android.text.Editable;
-import android.util.TypedValue;
-import android.view.View;
-import android.view.WindowManager;
-import android.widget.Toast;
-
 import android.king.signature.config.PenConfig;
 import android.king.signature.util.BitmapUtil;
+import android.king.signature.util.DisplayUtil;
 import android.king.signature.util.SystemUtil;
 import android.king.signature.view.CircleImageView;
 import android.king.signature.view.CircleView;
@@ -31,6 +20,18 @@ import android.king.signature.view.GridPaintView;
 import android.king.signature.view.HVScrollView;
 import android.king.signature.view.HandWriteEditView;
 import android.king.signature.view.PaintSettingWindow;
+import android.os.Build;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.text.Editable;
+import android.util.TypedValue;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 
 
 /***
@@ -178,7 +179,9 @@ public class GridPaintActivity extends BaseActivity implements View.OnClickListe
             mEditView.setMaxWidth(maxWidth * 2 / 3);
         }
         mEditView.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSize);
-        mEditView.setLineHeight(DisplayUtil.dip2px(this, fontSize));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            mEditView.setLineHeight(DisplayUtil.dip2px(this, fontSize));
+        }
         mEditView.setHorizontallyScrolling(false);
         mEditView.requestFocus();
         if (bgColor != Color.TRANSPARENT) {
